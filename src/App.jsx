@@ -1,14 +1,12 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import CarSearchForm from "./CarSearchForm";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-100">
-      <h1 className="text-4xl font-bold text-blue-700">Tailwind is working!</h1>
+    <div className="min-h-screen bg-gray-50 p-4">
+      <h1 className="text-3xl font-bold text-center text-blue-700 mb-6">
+        Used Car Price Checker
+      </h1>
+      <CarSearchForm />
     </div>
   );
 }
