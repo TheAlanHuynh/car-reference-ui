@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReferenceTable from "./ReferenceTable";
 
 function CarSearchForm() {
   const [make, setMake] = useState("");
@@ -16,7 +17,7 @@ function CarSearchForm() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/avg-price?make=${make}&model=${model}&year=${year}`
+        `http://localhost:5000/api/avg-price?make=${make.toLowerCase()}&model=${model.toLowerCase()}&year=${year}`
       );
       const data = await response.json();
 
@@ -91,6 +92,27 @@ function CarSearchForm() {
         <div className="mt-6 p-4 bg-red-100 border border-red-300 rounded text-red-700">
           ❌ {error}
         </div>
+      )}
+
+      {result && (
+        <>
+          {/* existing green card */}
+          <div className="mt-6 p-4 bg-green-100 border border-green-300 rounded">
+            <p>
+              📊 Average Price: <strong>${result.avg_price ?? "N/A"}</strong>
+            </p>
+            <p>
+              📋 Listings Found: <strong>{result.count}</strong>
+            </p>
+          </div>
+
+          {/* new reference table */}
+          <ReferenceTable
+            make={make.toLowerCase()}
+            model={model.toLowerCase()}
+            year={year}
+          />
+        </>
       )}
     </div>
   );
