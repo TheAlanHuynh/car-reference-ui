@@ -38,7 +38,7 @@ function ReferenceTable({ make, model, year }) {
           <th className="p-2 border">Make</th>
           <th className="p-2 border">Model</th>
           <th className="p-2 border">Price (CAD)</th>
-          <th className="p-2 border">Odometer (km)</th>
+          <th className="p-2 border">mileage_km (km)</th>
           <th className="p-2 border">Date</th>
         </tr>
       </thead>
@@ -46,13 +46,13 @@ function ReferenceTable({ make, model, year }) {
         {rows.map((r) => (
           <tr key={r.id} className="even:bg-gray-50">
             <td className="p-2 border">{r.year}</td>
-            <td className="p-2 border capitalize">{r.manufacturer}</td>
+            <td className="p-2 border capitalize">{r.make}</td>
             <td className="p-2 border capitalize">{r.model}</td>
             <td className="p-2 border text-right">
               ${r.price.toLocaleString()}
             </td>
             <td className="p-2 border text-right">
-              {r.odometer?.toLocaleString()}
+              {r.mileage_km?.toLocaleString()}
             </td>
             <td className="p-2 border">{r.created_at}</td>
           </tr>
