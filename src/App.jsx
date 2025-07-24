@@ -1,4 +1,5 @@
-import CarSearchForm from "./CarSearchForm";
+// import CarSearchForm from "./CarSearchForm";
+import UrlSubmitForm from "./UrlSubmitForm";
 
 function App() {
   return (
@@ -6,7 +7,8 @@ function App() {
       <h1 className="text-3xl font-bold text-center text-blue-700 mb-6">
         Used Car Price Checker
       </h1>
-      <CarSearchForm />
+      {/* <CarSearchForm /> */}
+      <UrlSubmitForm />
     </div>
   );
 }
