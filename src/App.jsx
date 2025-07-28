@@ -1,16 +1,16 @@
-// import CarSearchForm from "./CarSearchForm";
-import UrlSubmitForm from "./UrlSubmitForm";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import StatsPage from "./pages/StatsPage";
+import ScraperPage from "./pages/ScraperPage";
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
-      <h1 className="text-3xl font-bold text-center text-blue-700 mb-6">
-        Used Car Price Checker
-      </h1>
-      {/* <CarSearchForm /> */}
-      <UrlSubmitForm />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/stats" element={<StatsPage />} />
+        <Route path="/scraper" element={<ScraperPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
